@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    #square {
+      width: 200px;
+      height: 200px;
+      background-color: red;
+    }
+    #changeColorButton{
+        cursor: pointer;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        align-items: center;
+        justify-content: center;
+        margin-top: 20px;
+        margin-left: 30px;
+        border-radius: 30px;
+        background-color: violet;
+        font-size: medium;
+    }
+    #box{
+        align-items: center;
+        justify-content: center;
+        margin-left: 50px;
+    }
+  </style>
+</head>
+<body>
+    <h2 id="box">Square</h2>
+  <div id="square"></div>
+  <button id="changeColorButton">Change Color</button>
+
+  <script>
+    // Function to generate a random color
+    function getRandomColor() {
+      var letters = '0123456789ABCDEF';
+      var color = '#';
+      for (var i = 0; i < 6; i++) {
+        color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+    }
+
+    // Function to change the color of the square
+    function changeColor() {
+      var square = document.getElementById('square');
+      var newColor = getRandomColor();
+      square.style.backgroundColor = newColor;
+    }
+
+    // Add click event listener to the button
+    var changeColorButton = document.getElementById('changeColorButton');
+    changeColorButton.addEventListener('click', changeColor);
+  </script>
+</body>
+</html>
